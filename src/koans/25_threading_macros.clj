@@ -1,5 +1,5 @@
 (ns koans.25-threading-macros
-  (:require [koan-engine.core :refer [meditations]]))
+  (:require [koan-engine.core :refer [meditations]] [clojure.string]))
 
 (def a-list
   '(1 2 3 4 5))
@@ -7,10 +7,10 @@
 (def a-list-with-maps
   '({:a 1} {:a 2} {:a 3}))
 
-(defn function-that-takes-a-map [map a b]
+(defn function-that-takes-a-map [map _a _b]
   (get map :a))
 
-(defn function-that-takes-a-coll [a b coll]
+(defn function-that-takes-a-coll [_a _b coll]
   (map :a coll))
 
 (meditations

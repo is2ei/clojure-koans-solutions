@@ -36,7 +36,7 @@
              (with-meta
                'Giants
                {:world-series-titles (atom 7)})]
-         (swap! (:world-series-titles (meta giants)) (fn [x] 8))
+         (swap! (:world-series-titles (meta giants)) (fn [_] 8))
          @(:world-series-titles (meta giants))))
 
   "You can also create a new object from another object with metadata"

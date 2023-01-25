@@ -1,5 +1,5 @@
 (ns koans.27-multimethods
-  (:require [koan-engine.core :refer [__ meditations]]))
+  (:require [koan-engine.core :refer [meditations]]))
 
 (defmulti multimethod-without-args
  (fn [keyword-arg] keyword-arg))
@@ -11,7 +11,7 @@
  (str "Hello there"))
 
 (defmulti multimethod-with-args
- (fn [opt-one opt-two] opt-one))
+ (fn [opt-one _] opt-one))
 
 (defmethod multimethod-with-args :path-one [_ opts]
  (:first-opt opts))

@@ -14,7 +14,8 @@ jobs:
     container: clojure:lein
     steps: 
       - uses: actions/checkout@v3
-      - run: |
+      - name: Run Clj-kondo
+        run: |
           apt-get update
           apt-get install -y zip
           curl -sLO https://raw.githubusercontent.com/clj-kondo/clj-kondo/master/script/install-clj-kondo
