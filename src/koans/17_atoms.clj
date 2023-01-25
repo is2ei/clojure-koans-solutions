@@ -14,7 +14,7 @@
 
   "Keep taxes out of this: swapping requires no transaction"
   (= 5 (do
-         (swap! atomic-clock (fn [x] 5))
+         (swap! atomic-clock (fn [_] 5))
          @atomic-clock))
 
   "Any number of arguments might happen during a swap"

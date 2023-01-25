@@ -29,14 +29,12 @@
            @the-world))
 
   "Functions passed to alter may depend on the data in the ref"
-  (= 20 (do
-          (dosync (alter the-world (fn [x] 20)))))
+  (= 20 (dosync (alter the-world (fn [_] 20))))
 
   "Two worlds are better than one"
   (= ["Real Jerry" "Bizarro Jerry"]
-       (do
-         (dosync
-          (ref-set the-world {})
-          (alter the-world assoc :jerry "Real Jerry")
-          (alter bizarro-world assoc :jerry "Bizarro Jerry")
-          [(@the-world :jerry) (@bizarro-world :jerry)]))))
+     (dosync
+      (ref-set the-world {})
+      (alter the-world assoc :jerry "Real Jerry")
+      (alter bizarro-world assoc :jerry "Bizarro Jerry")
+      [(@the-world :jerry) (@bizarro-world :jerry)])))

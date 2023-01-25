@@ -30,6 +30,7 @@
   (= "Hello, Macros!" (hello "Macros!"))
 
   "I can haz infix?"
+   #_{:clj-kondo/ignore [:not-a-function]}
   (= 10 (infix (9 + 1)))
 
   "Remember, these are nothing but code transformations"
@@ -42,4 +43,5 @@
   (= '(+ 10 (2 * 3)) (macroexpand '(infix-concise (10 + (2 * 3)))))
 
   "Really, you don't understand recursion until you understand recursion"
+   #_{:clj-kondo/ignore [:not-a-function]} 
   (= 36 (recursive-infix (10 + (2 * 3) + (4 * 5)))))
