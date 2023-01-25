@@ -12,3 +12,8 @@ pom.xml.asc
 .lein-failures
 .nrepl-port
 .cpcache/
+
+# lsp: ignore all but the config file
+.lsp/*
+!.lsp/config.edn
+.clj-kondo/.cache
